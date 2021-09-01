@@ -24,14 +24,9 @@ public class Actividad2 {
 
         // Mostramos array
         for (int i = 0; i < elipses.length; i++) {
-            if (elipses[i] == null) {
-                System.out.println("ELIPSE " + i + " NO EXISTE");
-            } else{
                 System.out.println("Area: " + elipses[i].calcularArea());
                 System.out.println("Perimetro: " + elipses[i].calcularPerimetro());
                 System.out.println(elipses[i].toString());
-            }
-            
         }
     }
 }
