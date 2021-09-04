@@ -1,12 +1,12 @@
-public class Elipse {
+public class ElipseClass {
     private double radioMayor;
     private double radioMenor;
 
-    public Elipse() {
+    public ElipseClass() {
         radioMenor = radioMayor = 0;
     }
 
-    public Elipse(float radioMayor, float radioMenor) {
+    public ElipseClass(float radioMayor, float radioMenor) {
         this.radioMayor = radioMayor;
         this.radioMenor = radioMenor;
     }
@@ -38,9 +38,10 @@ public class Elipse {
 
     }
 
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return "El radio menor es: " + this.getRadioMenor() + " y el radio mayor es: " + this.getRadioMenor();
-    }
+    // @Override
+    // public String toString() {
+    // // TODO Auto-generated method stub
+    // return "El radio menor es: " + this.getRadioMenor() + " y el radio mayor es:
+    // " + this.getRadioMenor();
+    // }
 }
