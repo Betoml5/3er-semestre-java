@@ -8,7 +8,7 @@ public class Practica1 {
         Alumno[] arrayAlumnos = new Alumno[10];
         Scanner input = new Scanner(System.in);
 
-        arrayAlumnos[0] = new Alumno("Beto", 2, 10, 10);
+        // arrayAlumnos[0] = new Alumno("Beto", 2, 10, 10);
 
         int option;
         do {
@@ -26,15 +26,23 @@ public class Practica1 {
                     System.out.println("POSICIONES: " + Arrays.toString(arrayAlumnos));
                     System.out.println("Ingresa la posicion del nuevo alumno: ");
                     int position = input.nextInt();
-
+                    if (position > 9 || position < 0) {
+                        System.out.println("Esa posicion en el arreglo no existe");
+                        break;
+                    }
                     while (arrayAlumnos[position] != null) {
+                        System.out.println("Esa posicion esta ocupada, ingresa otra");
                         System.out.println("POSICIONES: " + Arrays.toString(arrayAlumnos));
                         System.out.println("Ingresa la posicion del nuevo alumno: ");
                         position = input.nextInt();
+                        if (position > 9 || position < 0) {
+                            System.out.println("Esa posicion en el arreglo no existe");
+                            break;
+                        }
                     }
-
                     System.out.println("Ingresa el nombre del alumno");
-                    String nombre = input.next();
+                    input.nextLine();
+                    String nombre = input.nextLine();
                     System.out.println("Ingresa el grupo del alumno");
                     int grupo = input.nextInt();
                     System.out.println("Ingresa la calificacion 1");
@@ -43,8 +51,47 @@ public class Practica1 {
                     float cal_2 = input.nextFloat();
                     arrayAlumnos[position] = new Alumno(nombre, grupo, cal_1, cal_2);
                     break;
+                case 2:
+                    for (int i = 0; i < arrayAlumnos.length; i++) {
+                        if (arrayAlumnos[i] != null) {
+                            System.out.println("------------------------------------------------");
+                            System.out.println("Nombre del alumno: " + arrayAlumnos[i].getNombre() + ". Indice: " + i);
+                            System.out.println("Grupo: " + arrayAlumnos[i].getGrupo());
+                            System.out.println("Calificacion 1: " + arrayAlumnos[i].getCalif1());
+                            System.out.println("Calificacion 2: " + arrayAlumnos[i].getCalif2());
+                            System.out.println("Promedio: " + arrayAlumnos[i].obtenerPromedio());
+                            System.out.println("------------------------------------------------");
+                        } else {
+                            System.out.println("Vacante vacia");
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Ingresa el grupo que deseas ver");
+                    int grupoOpcion = input.nextInt();
+                    for (int i = 0; i < arrayAlumnos.length; i++) {
+                        if (arrayAlumnos[i] != null) {
+                            if (arrayAlumnos[i].getGrupo() == grupoOpcion) {
+                                System.out.println("Nombre: " + arrayAlumnos[i].getNombre());
+                            }
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < arrayAlumnos.length; i++) {
+                        if (arrayAlumnos[i].obtenerPromedio() < 6) {
+                            System.out.println("Nombre: " + arrayAlumnos[i].getNombre());
+                            System.out.println("Calificacion 1: " + arrayAlumnos[i].getCalif1());
+                            System.out.println("Calificacion 2: " + arrayAlumnos[i].getCalif2());
+                        }
+                    }
+                    break;
 
+                case 5:
+                    option = 5;
+                    break;
                 default:
+                    System.out.println("Esa opcion no existe");
                     break;
             }
 
