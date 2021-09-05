@@ -72,17 +72,24 @@ public class Practica1 {
                     for (int i = 0; i < arrayAlumnos.length; i++) {
                         if (arrayAlumnos[i] != null) {
                             if (arrayAlumnos[i].getGrupo() == grupoOpcion) {
-                                System.out.println("Nombre: " + arrayAlumnos[i].getNombre());
+                                System.out.println("------------------------------------------------");
+                                System.out.println("Nombre: " + arrayAlumnos[i].getNombre() + ". Grupo: "
+                                        + arrayAlumnos[i].getGrupo());
+                                System.out.println("------------------------------------------------");
                             }
                         }
                     }
                     break;
                 case 4:
                     for (int i = 0; i < arrayAlumnos.length; i++) {
-                        if (arrayAlumnos[i].obtenerPromedio() < 6) {
-                            System.out.println("Nombre: " + arrayAlumnos[i].getNombre());
-                            System.out.println("Calificacion 1: " + arrayAlumnos[i].getCalif1());
-                            System.out.println("Calificacion 2: " + arrayAlumnos[i].getCalif2());
+                        if (arrayAlumnos[i] != null) {
+                            if (arrayAlumnos[i].obtenerPromedio() < 6) {
+                                System.out.println("------------------------------------------------");
+                                System.out.println("Nombre: " + arrayAlumnos[i].getNombre());
+                                System.out.println("Calificacion 1: " + arrayAlumnos[i].getCalif1());
+                                System.out.println("Calificacion 2: " + arrayAlumnos[i].getCalif2());
+                                System.out.println("------------------------------------------------");
+                            }
                         }
                     }
                     break;
