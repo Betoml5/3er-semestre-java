@@ -1,5 +1,9 @@
 package practicaAlumnos_1;
 
+// Integrantes
+// Beto Martinez Luna
+// Yahir Rivera 
+// Brenda Rodriguez
 public class Alumno {
     private String nombre;
     private int grupo;
@@ -48,7 +52,8 @@ public class Alumno {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return super.toString();
+        return "Nombre del alumno: " + this.nombre + "\n Calificacion 1: " + this.calif1 + "\n Calificacion 2: "
+                + this.calif2 + "\n Promedio: " + this.obtenerPromedio() + "\n Grupo: " + this.grupo;
     }
 
     public float obtenerPromedio() {

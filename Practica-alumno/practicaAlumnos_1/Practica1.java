@@ -3,12 +3,15 @@ package practicaAlumnos_1;
 import java.util.Arrays;
 import java.util.Scanner;
 
+// Integrantes
+// Beto Martinez Luna
+// Yahir Rivera 
+// Brenda Rodriguez Salazar
+
 public class Practica1 {
     public static void main(String[] args) {
         Alumno[] arrayAlumnos = new Alumno[10];
         Scanner input = new Scanner(System.in);
-
-        // arrayAlumnos[0] = new Alumno("Beto", 2, 10, 10);
 
         int option;
         do {
