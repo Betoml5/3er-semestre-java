@@ -1,5 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "Practica-alumno"
+        "Practica-alumno",
+        "Matrices",
+        "Practica-2"
     ]
 }
