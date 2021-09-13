@@ -83,12 +83,11 @@ public class Practica2 {
 		// for (int i = 0; i < matriz.length; i++) {
 		// System.out.println("Columna 2: " + matriz[i][indice_2]);
 		// }
+		// Aqui creo un array para guardar los valores de una columna para poder
+		// asignarlos despues
 		int holdingArray[] = new int[matriz[0].length];
 		for (int i = 0; i < matriz.length; i++) {
 			holdingArray[i] = matriz[i][indice_1];
-		}
-		for (int i = 0; i < holdingArray.length; i++) {
-			System.out.println(holdingArray[i]);
 		}
 		for (int i = 0; i < matriz.length; i++) {
 			matriz[i][indice_1] = matriz[i][indice_2];
