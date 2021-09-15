@@ -2,6 +2,11 @@
 import java.util.Random;
 import java.util.Scanner;
 
+//Equipo
+// Beto Martinez
+// Yahir Rivera Piña
+// Brenda Rodriguez
+
 public class Practica2 {
 	static int matriz[][];
 
@@ -52,7 +57,7 @@ public class Practica2 {
 			for (int j = 0; j < matriz[i].length; j++)
 				if (matriz[i][j] > mayor) {
 					mayor = matriz[i][j];
-					salida = "El elemento mayor es: " + mayor + " En la posici�n [" + i + "][" + j + "]";
+					salida = "El elemento mayor es: " + mayor + " En la posicion [" + i + "][" + j + "]";
 				}
 		}
 		System.out.println(salida);
