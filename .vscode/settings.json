@@ -1,9 +1,13 @@
 {
     "java.project.sourcePaths": [
         "Practica-alumno",
+<<<<<<< HEAD
         "Practica-3",
         "Practica-2",
         "Matrices",
         "Practica-6"
+=======
+        "Practica-2"
+>>>>>>> b21277d446728419604ac933c547fc0da6eb9de8
     ]
 }

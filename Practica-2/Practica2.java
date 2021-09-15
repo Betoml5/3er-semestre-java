@@ -1,11 +1,10 @@
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 //Equipo
 // Beto Martinez
-// Yahir Rivera
+// Yahir Rivera Piña
 // Brenda Rodriguez
 
 public class Practica2 {
@@ -58,7 +57,7 @@ public class Practica2 {
 			for (int j = 0; j < matriz[i].length; j++)
 				if (matriz[i][j] > mayor) {
 					mayor = matriz[i][j];
-					salida = "El elemento mayor es: " + mayor + " En la posici�n [" + i + "][" + j + "]";
+					salida = "El elemento mayor es: " + mayor + " En la posicion [" + i + "][" + j + "]";
 				}
 		}
 		System.out.println(salida);
@@ -76,26 +75,21 @@ public class Practica2 {
 		System.out.println(salida);
 	}
 
-	public static void cambiarColumnas(int indice_1, int indice_2) {
-		// for (int i = 0; i < matriz.length; i++) {
-		// System.out.println("Columna 1: " + matriz[i][indice_1]);
-		// }
-		// for (int i = 0; i < matriz.length; i++) {
-		// System.out.println("Columna 2: " + matriz[i][indice_2]);
-		// }
-		// Aqui creo un array para guardar los valores de una columna para poder
-		// asignarlos despues
-		int holdingArray[] = new int[matriz[0].length];
-		for (int i = 0; i < matriz.length; i++) {
-			holdingArray[i] = matriz[i][indice_1];
-		}
-		for (int i = 0; i < matriz.length; i++) {
-			matriz[i][indice_1] = matriz[i][indice_2];
-			matriz[i][indice_2] = holdingArray[i];
+	public static void cambiaColumnas(int indice_1, int indice_2) {
+		if (indice_1 >= matriz[0].length || indice_2 >= matriz[0].length) {
+			System.out.println("ESA COLUMNA NO EXISTE");
+		} else {
+			int holdingArray[] = new int[matriz[0].length];
+			for (int i = 0; i < matriz.length; i++) {
+				holdingArray[i] = matriz[i][indice_1];
+			}
+
+			for (int i = 0; i < matriz.length; i++) {
+				matriz[i][indice_1] = matriz[i][indice_2];
+				matriz[i][indice_2] = holdingArray[i];
+			}
 		}
 	}
-
-	static int myArray[][] = { { 1, 3, 5, 7 }, { 5, 4, 1, 16 }, { 7, 9, 61, 13 } };
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -104,8 +98,8 @@ public class Practica2 {
 		boolean creada = false;
 		do {
 			Scanner entrada = new Scanner(System.in);
-			System.out.println("- - - - - - - - - - - - - - Men� - - - - - - - - - - - - - -");
-			System.out.println("- - - Escribe el n�mero de la opci�n que quieres hacer - - -");
+			System.out.println("- - - - - - - - - - - - - - Menu  - - - - - - - - - - - - - -");
+			System.out.println("- - - Escribe el numero de la opcion que quieres hacer - - -");
 			System.out.println("1. Generar matriz");
 			System.out.println("2. Desplegar matriz");
 			System.out.println("3. Sumar datos de la matriz");
@@ -148,11 +142,11 @@ public class Practica2 {
 					diagonal();
 					break;
 				case 7:
-					System.out.println("Ingresa el primer indice de la columna: ");
+					System.out.println("Ingresa la primera columna: ");
 					int indice_1 = entrada.nextInt();
-					System.out.println("Ingresa el primer indice de la columna: ");
+					System.out.println("Ingresa la segunda columna: ");
 					int indice_2 = entrada.nextInt();
-					cambiarColumnas(indice_1, indice_2);
+					cambiaColumnas(indice_1, indice_2);
 					break;
 				case 8:
 					salir = false;
