@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
         "Practica-alumno",
+        "Practica-3",
         "Practica-2",
         "Matrices",
-        "Practica-3"
+        "Practica-6"
     ]
 }
