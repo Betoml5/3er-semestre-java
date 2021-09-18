@@ -7,6 +7,8 @@ import java.util.Scanner;
 // Brenda Rodriguez
 
 public class Practica5 {
+    // i = 0 j = 0
+    // 
 
     public static void main(String[] args) {
         int n = 0;
@@ -14,7 +16,7 @@ public class Practica5 {
         System.out.println("Ingresa el tamano de la matriz");
         n = entrada.nextInt();
         int matriz[][] = new int[n][];
-        int k = 1;
+        int k = 0;
         for (int i = 0; i < matriz.length; i++) {
             matriz[i] = new int[i + 1];
             k = i + 1;
