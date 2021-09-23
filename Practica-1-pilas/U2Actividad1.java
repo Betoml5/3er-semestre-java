@@ -1,5 +1,10 @@
 import javax.swing.JOptionPane;
 
+//Equipo
+//Beto Martinez
+//Yahir Rivera
+//Brenda Rodriguez
+
 public class U2Actividad1 {
 
 	public static void main(String args[]) {
