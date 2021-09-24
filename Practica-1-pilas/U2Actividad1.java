@@ -10,7 +10,7 @@ public class U2Actividad1 {
 	public static void main(String args[]) {
 		// declara y crea una pila de 5 casillas
 		PilaString pilita = new PilaString(10); // se usa el 1er constructor
-		int num, opcion;
+		int opcion;
 
 		String menu = " OPCIONES PARA UNA PILA DE ENTEROS \n\n";
 		menu += "1. Insertar una ciudad \n";
