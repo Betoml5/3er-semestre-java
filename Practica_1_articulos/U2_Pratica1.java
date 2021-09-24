@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class U2_Pratica1 {
@@ -60,7 +59,6 @@ public class U2_Pratica1 {
 
                 case 6:
                     if (papeleria.numElementos() != 0) {
-
                         papeleria.aumentarPrecio();
                     } else {
                         System.out.println("NO HAY ELEMENTOS EN LA PILA");
@@ -68,7 +66,6 @@ public class U2_Pratica1 {
                     break;
                 case 7:
                     if (papeleria.numElementos() != 0) {
-                        System.out.println("Articulos con cantidad > 20");
                         papeleria.mostrar20();
                     } else {
                         System.out.println("NO HAY ELEMENTOS EN LA PILA");

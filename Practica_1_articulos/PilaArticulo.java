@@ -107,7 +107,9 @@ public class PilaArticulo {
         // TODO Auto-generated method stub
         String s = "Elementos en la pila:\n";
         for (int i = tope; i >= 0; i--) {
-            s += p[i] + "\n";
+
+            s += p[i] + "\n---------------------" + "\n";
+
         }
         s += "Fin de de la pila";
 
