@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+//Equipo
+//Beto Martinez
+// Yahir Rivera
+// Brenda Rodriguez
+
 public class U2_Pratica1 {
     public static void main(String[] args) {
 
