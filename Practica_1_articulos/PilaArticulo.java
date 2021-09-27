@@ -105,11 +105,12 @@ public class PilaArticulo {
     public String masCaro() {
         int masCaroIndex = 0;
         if (!estaVacia()) {
-            float precioMasCaro = p[0].getPrecio();
+            float precioMasCaro = 0;
 
-            for (int i = tope; i >= 0; i--) {
+            for (int i = tope; i > 0; i--) {
                 if (p[i].getPrecio() > precioMasCaro) {
                     masCaroIndex = i;
+                    precioMasCaro = p[i].getPrecio();
                 }
             }
             return p[masCaroIndex].getDescripcion();
