@@ -10,7 +10,7 @@ public class U2_Pratica1 {
 
         Scanner entrada = new Scanner(System.in);
         int opcion;
-        PilaArticulo papeleria = new PilaArticulo(12);
+        PilaArticulo papeleria = new PilaArticulo(5);
 
         do {
             System.out.println("---MENU---");
@@ -21,7 +21,9 @@ public class U2_Pratica1 {
             System.out.println("5.- Mostrar el total del inventario");
             System.out.println("6.- Aumentar un 5% el precio de todos los articulos");
             System.out.println("7.- Mostrar articulos con cantidad > a 20");
-            System.out.println("8.- Salir");
+            System.out.println("8.- Articulo mas caro");
+            System.out.println("9.- Vaciar la pila");
+            System.out.println("10.- Salir");
             opcion = entrada.nextInt();
 
             switch (opcion) {
@@ -77,13 +79,20 @@ public class U2_Pratica1 {
                     }
                     break;
                 case 8:
-                    opcion = 8;
+
+                    System.out.println("Descripcion del Articulo mas caro: " + papeleria.masCaro());
+                    break;
+                case 9:
+                    papeleria.vaciarPila();
+                    break;
+                case 10:
+                    opcion = 10;
                     break;
                 default:
                     break;
             }
 
-        } while (opcion != 8);
+        } while (opcion != 10);
 
         entrada.close();
     }

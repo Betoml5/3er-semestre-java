@@ -102,6 +102,40 @@ public class PilaArticulo {
 
     }
 
+    public String masCaro() {
+        int masCaroIndex = 0;
+        if (!estaVacia()) {
+            float precioMasCaro = p[0].getPrecio();
+
+            for (int i = tope; i >= 0; i--) {
+                if (p[i].getPrecio() > precioMasCaro) {
+                    masCaroIndex = i;
+                }
+            }
+            return p[masCaroIndex].getDescripcion();
+        } else {
+            System.out.println("La pila esta vacia");
+            return "";
+        }
+
+    }
+
+    public void vaciarPila() {
+        if (!estaVacia()) {
+            int i = tope;
+            while (i >= 0) {
+                System.out.println("ELIMINADO: " + p[i].getDescripcion());
+                p[i] = null;
+                i--;
+                tope--;
+            }
+            System.out.println("SE VACIO LA PILA");
+        } else {
+            System.out.println("LA PILA ESTA VACIA");
+        }
+
+    }
+
     @Override
     public String toString() {
         // TODO Auto-generated method stub

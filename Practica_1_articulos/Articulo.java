@@ -1,5 +1,4 @@
 
-
 public class Articulo {
     private String descripcion;
     private int cantidad;
@@ -12,15 +11,15 @@ public class Articulo {
     }
 
     public int getCantidad() {
-        return cantidad;
+        return this.cantidad;
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return this.descripcion;
     }
 
     public float getPrecio() {
-        return precio;
+        return this.precio;
     }
 
     public void setDescripcion(String descripcion) {
@@ -40,5 +39,3 @@ public class Articulo {
         return "Articulo: " + this.descripcion + "\nCantidad: " + this.cantidad + "\nPrecio: " + this.precio;
     }
 }
-
-
