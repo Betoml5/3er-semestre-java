@@ -47,13 +47,17 @@ public class PilaArticulo {
     }
 
     public float mostrarInventario() {
-        float sumatoria = 0;
-        for (int i = tope; i >= 0; i--) {
-            if (p[i] != null) {
-                sumatoria += p[i].getCantidad() * p[i].getPrecio();
+        if (!estaVacia()) {
+            float sumatoria = 0;
+            for (int i = tope; i >= 0; i--) {
+                if (p[i] != null) {
+                    sumatoria += p[i].getCantidad() * p[i].getPrecio();
+                }
             }
+            return sumatoria;
+        } else {
+            System.out.println("La pila esta vacia");
         }
-        return sumatoria;
     }
 
     public boolean estaVacia() {
@@ -82,22 +86,30 @@ public class PilaArticulo {
     }
 
     public void aumentarPrecio() {
-        for (int i = tope; i >= 0; i--) {
-            if (p[i] != null) {
-                float sumaPrecio = (float) (p[i].getPrecio() * .5);
-                float precioFinal = p[i].getPrecio() + sumaPrecio;
-                p[i].setPrecio(precioFinal);
+        if (!estaVacia()) {
+            for (int i = tope; i >= 0; i--) {
+                if (p[i] != null) {
+                    float sumaPrecio = (float) (p[i].getPrecio() * .5);
+                    float precioFinal = p[i].getPrecio() + sumaPrecio;
+                    p[i].setPrecio(precioFinal);
+                }
             }
+        } else {
+            System.out.println("La pila esta vacia");
         }
     }
 
     public void mostrar20() {
-        for (int i = tope; i >= 0; i--) {
-            if (p[i] != null) {
-                if (p[i].getCantidad() > 20) {
-                    System.out.println("Descripcion: " + p[i].getDescripcion());
+        if (!estaVacia()) {
+            for (int i = tope; i >= 0; i--) {
+                if (p[i] != null) {
+                    if (p[i].getCantidad() > 20) {
+                        System.out.println("Descripcion: " + p[i].getDescripcion());
+                    }
                 }
             }
+        } else {
+            System.out.println("La pila esta vacia");
         }
 
     }
@@ -107,7 +119,7 @@ public class PilaArticulo {
         if (!estaVacia()) {
             float precioMasCaro = 0;
 
-            for (int i = tope; i > 0; i--) {
+            for (int i = tope; i >= 0; i--) {
                 if (p[i].getPrecio() > precioMasCaro) {
                     masCaroIndex = i;
                     precioMasCaro = p[i].getPrecio();
