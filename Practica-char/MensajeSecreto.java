@@ -2,6 +2,8 @@ import java.net.PasswordAuthentication;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javax.swing.text.DefaultEditorKit.PasteAction;
+
 public class MensajeSecreto {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
@@ -44,11 +46,58 @@ public class MensajeSecreto {
             }
         }
 
-        
+        int numElementos = pilaChar1.numElementos() + pilaChar2.numElementos() + pilaChar3.numElementos();
+        String finalWord = "";
+        for (int i = 0; i < numElementos; i++) {
+            if (pilaChar1.numElementos() >= 2) {
+                finalWord += pilaChar1.eliminar();
+                finalWord += pilaChar1.eliminar();
+            } else if (pilaChar1.numElementos() > 0) {
+                finalWord += pilaChar1.eliminar();
+            }
 
-        System.out.println(Arrays.toString(pilaChar1.getP()));
-        System.out.println(Arrays.toString(pilaChar2.getP()));
-        System.out.println(Arrays.toString(pilaChar3.getP()));
+            if (pilaChar2.numElementos() >= 2) {
+                finalWord += pilaChar2.eliminar();
+                finalWord += pilaChar2.eliminar();
+            } else if (pilaChar2.numElementos() > 0) {
+                finalWord += pilaChar2.eliminar();
+            }
+
+            if (pilaChar3.numElementos() >= 2) {
+                finalWord += pilaChar3.eliminar();
+                finalWord += pilaChar3.eliminar();
+            } else if (pilaChar3.numElementos() > 0) {
+                finalWord += pilaChar3.eliminar();
+            }
+        }
+
+        // finalWord = 'x' + finalWord;
+
+        // if (finalWord.endsWith("a") | finalWord.endsWith("e") |
+        // finalWord.endsWith("i") | finalWord.endsWith("o")
+        // | finalWord.endsWith("u")) {
+        // finalWord = finalWord + '%';
+        // } else {
+        // finalWord = finalWord + '#';
+        // }
+
+        String filterWord = agregarCaracter(finalWord);
+
+        System.out.println(filterWord);
+
+    }
+
+    public static String agregarCaracter(String palabra) {
+        palabra = 'x' + palabra;
+        if (palabra.endsWith("a") | palabra.endsWith("e") | palabra.endsWith("i") | palabra.endsWith("o")
+                | palabra.endsWith("u") | palabra.endsWith("á") | palabra.endsWith("é") | palabra.endsWith("í")
+                | palabra.endsWith("ó") | palabra.endsWith("ú")) {
+            palabra = palabra + '%';
+        } else {
+            palabra = palabra + '#';
+        }
+
+        return palabra;
 
     }
 }
