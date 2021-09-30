@@ -57,6 +57,7 @@ public class PilaArticulo {
             return sumatoria;
         } else {
             System.out.println("La pila esta vacia");
+            return 0;
         }
     }
 

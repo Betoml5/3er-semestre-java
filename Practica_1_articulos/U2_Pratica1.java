@@ -7,6 +7,16 @@ import java.util.Scanner;
 
 public class U2_Pratica1 {
     public static void main(String[] args) {
+        String s1 = "hola";
+        String s2 = "hola";
+        System.out.println(s1.hashCode());
+        System.out.println(s2.hashCode());
+
+        if (s1.equals(s2)) {
+            System.out.println("True");
+        } else {
+            System.out.println("False");
+        }
 
         Scanner entrada = new Scanner(System.in);
         int opcion;
