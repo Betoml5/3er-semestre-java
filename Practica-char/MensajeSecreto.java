@@ -15,26 +15,6 @@ public class MensajeSecreto {
         PilaChar pilaChar2 = new PilaChar(palabra.length());
         PilaChar pilaChar3 = new PilaChar(palabra.length());
 
-        // int index = palabra.length();
-        // int aux = 0;
-        // while (index != 0) {
-        // pilaChar1.insertar(palabra.charAt(index));
-        // pilaChar2.insertar(palabra.charAt(index + 1));
-        // pilaChar3.insertar(palabra.charAt(index + 2));
-        // index = index - (pilaChar1.numElementos() + pilaChar2.numElementos() +
-        // pilaChar3.numElementos());
-        // }
-        // int aux = 0;
-        // for (int i = 0; i < palabra.length() - 2; i = pilaChar1.numElementos() +
-        // pilaChar2.numElementos()
-        // + pilaChar3.numElementos()) {
-        // pilaChar1.insertar(palabra.charAt(i));
-        // pilaChar2.insertar(palabra.charAt(i + 1));
-        // pilaChar3.insertar(palabra.charAt(i + 2));
-        // aux = pilaChar1.numElementos() + pilaChar2.numElementos()
-        // + pilaChar3.numElementos();
-        // }
-
         for (int i = 0; i < palabra.length(); i++) {
             int resto = i % 3;
             if (resto == 0) {
@@ -70,21 +50,8 @@ public class MensajeSecreto {
                 finalWord += pilaChar3.eliminar();
             }
         }
-
-        // finalWord = 'x' + finalWord;
-
-        // if (finalWord.endsWith("a") | finalWord.endsWith("e") |
-        // finalWord.endsWith("i") | finalWord.endsWith("o")
-        // | finalWord.endsWith("u")) {
-        // finalWord = finalWord + '%';
-        // } else {
-        // finalWord = finalWord + '#';
-        // }
-
         String filterWord = agregarCaracter(finalWord);
-
         System.out.println(filterWord);
-
     }
 
     public static String agregarCaracter(String palabra) {
