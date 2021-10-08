@@ -1,4 +1,9 @@
 public class PilaChar {
+
+    // Equipo
+    // Alberto Martinez
+    // Yahir Rivera
+    // Brenda Rodriguez
     private char[] p; // vector para guardar datos, únicamente se declara
     private int tope; // apuntador al último elemento de la pila
 
