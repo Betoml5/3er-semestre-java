@@ -1,22 +1,22 @@
 import java.util.Set;
 
-public class ColaInt {
-    private int c[]; // Vector para manejar la fila de ENTEROS
+public class ColaLibros {
+    private Libro c[]; // Vector para manejar la fila de ENTEROS
     private int frente, fin; // Apuntadores para el frente y final de la estructura
 
-    public ColaInt() {
-        c = new int[5];
+    public ColaLibros() {
+        c = new Libro[5];
         frente = 0;
         fin = -1;
     }
 
-    public ColaInt(int n) {
-        c = new int[n];
+    public ColaLibros(int n) {
+        c = new Libro[n];
         frente = 0;
         fin = -1;
     }
 
-    public int[] getC() {
+    public Libro[] getC() {
         return c;
     }
 
@@ -28,7 +28,7 @@ public class ColaInt {
         return frente;
     }
 
-    public void setC(int[] c) {
+    public void setC(Libro[] c) {
         this.c = c;
     }
 
@@ -40,18 +40,18 @@ public class ColaInt {
         this.frente = frente;
     }
 
-    public void insertar(int x) {
+    public void insertar(Libro x) {
         if (!estaLlena()) {
             fin++;
             c[fin] = x;
         }
     }
 
-    public int eliminar() {
-        int borrado = -9999;
+    public Libro eliminar() {
+        Libro borrado = null;
         if (!estaVacia()) {
             borrado = c[frente];
-            c[frente] = 0;
+            c[frente] = null;
             frente++;
             if (estaVacia()) { // si al eliminar, la cola queda VACÍA, se ajustan los
                 frente = 0; // apuntadores para reutilizar las casillas del principio
@@ -79,16 +79,16 @@ public class ColaInt {
         return fin - frente + 1;
     }
 
-    public int elementoEnFrente() {
+    public Libro elementoEnFrente() {
         if (estaVacia())
-            return -9999;
+            return null;
         else
             return c[frente];
     }
 
-    public int elementoEnFin() {
+    public Libro elementoEnFin() {
         if (estaVacia())
-            return -9999;
+            return null;
         else
             return c[fin];
     }
@@ -98,6 +98,32 @@ public class ColaInt {
         for (int i = frente; i <= fin; i++)
             s += c[i] + "\n";
         return s;
+    }
+
+    public String titulosAutores() {
+        String s = "";
+        if (!estaVacia()) {
+            for (int i = frente; i <= fin; i++) {
+                if (c[i].getNumPaginas() > 200 && c[i].getPrecio() < 300) {
+                    s += "El autor: " + c[i].getAutor() + " del libro: " + c[i].getTitulo() + "\n";
+
+                }
+            }
+
+            return s;
+        }
+        return s;
+    }
+
+    public void modificaPrecio() {
+        if (!estaVacia()) {
+            for (int i = frente; i <= fin; i++) {
+                if (c[i].getAutor().equals("Octavio Paz")) {
+                    float rebaje = (float) (c[i].getPrecio() * 0.15);
+                    c[i].setPrecio(c[i].getPrecio() - rebaje);
+                }
+            }
+        }
     }
 
 }
