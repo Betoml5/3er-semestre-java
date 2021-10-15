@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 public class U3_Practica1 {
+    // Equipo
+    // Yahir Rivera
+    // Beto Martinez
+    // Brenda Rodriguez
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         int opcion;
