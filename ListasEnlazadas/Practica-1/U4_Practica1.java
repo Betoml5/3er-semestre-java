@@ -50,7 +50,7 @@ public class U4_Practica1 {
                 } while (correcto);
                 System.out.println("Ingresa el sueldo del doctor");
                 sueldo = entrada.nextFloat();
-                turno1.insertaFinal(new NodoDoctor(new Doctor(nombre, especialidad, sueldo)));
+                turno1.insertaAlfabetico(new NodoDoctor(new Doctor(nombre, especialidad, sueldo)));
                 break;
             case 2:
                 System.out.println("Ingresa el nombre del doctor");

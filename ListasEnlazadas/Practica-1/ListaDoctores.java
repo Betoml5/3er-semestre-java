@@ -125,14 +125,11 @@ public class ListaDoctores {
     public NodoDoctor eliminarPorNombre(String nombre) {
         NodoDoctor nodoActual = inicio;
         NodoDoctor nodoAtras = null;
-
         if (!listaVacia()) {
-
             if (numNodos == 1 && nodoActual.getDoctor().getNombre().equals(nombre)) {
                 System.out.println("El doctor " + nodoActual.getDoctor().getNombre() + " ha sido eliminado");
                 return nodoActual = eliminaInicio();
             }
-
             if (nodoActual.getDoctor().getNombre().equals(nombre)) {
                 nodoAtras = inicio;
                 nodoActual = inicio.getEnlace();
@@ -142,7 +139,6 @@ public class ListaDoctores {
                 System.out.println("El doctor " + aux.getDoctor().getNombre() + " ha sido eliminado");
                 return aux;
             }
-
             nodoAtras = inicio;
             nodoActual = inicio.getEnlace();
             while (nodoActual != null) {
@@ -162,6 +158,35 @@ public class ListaDoctores {
         }
         System.out.println("No hemos encontrado ningun doctor con ese nombre");
         return null;
+    }
+
+    public void insertaAlfabetico(NodoDoctor nuevo) {
+        NodoDoctor nodoActual = inicio;
+        NodoDoctor nodoAtras = null;
+        if (!listaVacia()) {
+            if (nuevo.getDoctor().getNombre().compareToIgnoreCase(nodoActual.getDoctor().getNombre()) < 0) {
+                insertaInicio(nuevo);
+                return;
+            }
+            nodoAtras = inicio;
+            nodoActual = inicio.getEnlace();
+
+            while (nodoActual != null) {
+                if (nuevo.getDoctor().getNombre().compareToIgnoreCase(nodoActual.getDoctor().getNombre()) < 0) {
+                    nodoAtras.setEnlace(nuevo);
+                    nuevo.setEnlace(nodoActual);
+                    numNodos++;
+                    return;
+                }
+                // Avanzamos en caso de que no se cumpla la condicion.
+                nodoAtras = nodoAtras.getEnlace();
+                nodoActual = nodoActual.getEnlace();
+            }
+            insertaFinal(nuevo);
+        } else {
+            insertaInicio(nuevo);
+        }
+
     }
 
     // Metodo toString
