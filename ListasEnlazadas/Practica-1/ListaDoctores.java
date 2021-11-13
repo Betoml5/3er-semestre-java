@@ -160,21 +160,23 @@ public class ListaDoctores {
         return null;
     }
 
-    public void insertaAlfabetico(NodoDoctor nuevo) {
+    public void insertaAlfabetico(NodoDoctor x) {
         NodoDoctor nodoActual = inicio;
         NodoDoctor nodoAtras = null;
         if (!listaVacia()) {
-            if (nuevo.getDoctor().getNombre().compareToIgnoreCase(nodoActual.getDoctor().getNombre()) < 0) {
-                insertaInicio(nuevo);
+            if (x.getDoctor().getNombre().compareToIgnoreCase(nodoActual.getDoctor().getNombre()) < 0) {
+                insertaInicio(x);
                 return;
             }
             nodoAtras = inicio;
             nodoActual = inicio.getEnlace();
 
+            // Carlos Alejandro David Efrain
+
             while (nodoActual != null) {
-                if (nuevo.getDoctor().getNombre().compareToIgnoreCase(nodoActual.getDoctor().getNombre()) < 0) {
-                    nodoAtras.setEnlace(nuevo);
-                    nuevo.setEnlace(nodoActual);
+                if (x.getDoctor().getNombre().compareToIgnoreCase(nodoActual.getDoctor().getNombre()) < 0) {
+                    nodoAtras.setEnlace(x);
+                    x.setEnlace(nodoActual);
                     numNodos++;
                     return;
                 }
@@ -182,9 +184,9 @@ public class ListaDoctores {
                 nodoAtras = nodoAtras.getEnlace();
                 nodoActual = nodoActual.getEnlace();
             }
-            insertaFinal(nuevo);
+            insertaFinal(x);
         } else {
-            insertaInicio(nuevo);
+            insertaInicio(x);
         }
 
     }
