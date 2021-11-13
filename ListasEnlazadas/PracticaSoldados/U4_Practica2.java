@@ -25,38 +25,38 @@ public class U4_Practica2 {
         System.out.println("numero random: " + result);
         for (int i = 0; i < 2; i++) {
 
-            System.out.println("Nodo actual antes: " + nodoRelativo);
-            System.out.println("Nodo de atras antes: " + nodoAtrasRelativo);
+            System.out.println("Nodo de atras: " + nodoAtrasRelativo);
+            System.out.println("Nodo actual: " + nodoRelativo);
+            System.out.println("----------------------");
 
             nodoAtrasRelativo = miLista.inicio;
             nodoRelativo = miLista.inicio.getEnlace();
 
-            System.out.println("Nodo actual despues: " + nodoRelativo);
-            System.out.println("Nodo de atras despues: " + nodoAtrasRelativo);
-
-            nodoAtrasRelativo = nodoAtrasRelativo.getEnlace();
-            nodoRelativo = nodoRelativo.getEnlace();
-
             ultimaPosicion--;
             if (ultimaPosicion == 0) {
+                Nodo eliminado = nodoRelativo;
+                nodoAtrasRelativo.setEnlace(eliminado.getEnlace());
+
                 System.out.println("Llegaste a tu destino. Nombre del nodo: " + nodoRelativo.getNombre());
                 nodoRelativo = nodoRelativo.getEnlace();
-
+                System.out.println("El nodo quedo en: " + nodoRelativo);
+                System.out.println("NODO ELIMINADO: " + eliminado.getNombre());
             }
         }
 
-        ultimaPosicion = 2;
-        for (int i = 0; i < 2; i++) {
-            ultimaPosicion--;
-            if (ultimaPosicion == 0) {
-                System.out.println("Llegaste a tu destino. Nombre del nodo: " + nodoRelativo.getNombre());
-                nodoRelativo = nodoRelativo.getEnlace();
-                System.out.println("El nodo relativo queda en: " + nodoRelativo.getNombre());
+        // ultimaPosicion = 2;
+        // for (int i = 0; i < 2; i++) {
+        // ultimaPosicion--;
+        // if (ultimaPosicion == 0) {
+        // System.out.println("Llegaste a tu destino. Nombre del nodo: " +
+        // nodoRelativo.getNombre());
+        // nodoRelativo = nodoRelativo.getEnlace();
+        // System.out.println("El nodo relativo queda en: " + nodoRelativo.getNombre());
 
-            }
+        // }
 
-            nodoRelativo = nodoRelativo.getEnlace();
-        }
+        // nodoRelativo = nodoRelativo.getEnlace();
+        // }
 
     }
 }
