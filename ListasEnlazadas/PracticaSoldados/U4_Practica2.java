@@ -16,33 +16,44 @@ public class U4_Practica2 {
 
         Random random = new Random();
 
-        int result = random.nextInt((miLista.numNodos - 1) + 1) + 1;
+        Nodo nodoAtras = miLista.inicio;
+        Nodo nodoActual = miLista.inicio.getEnlace();
+        while (miLista.numNodos != 1 && miLista.numNodos != 0) {
+            int numeroRandom = random.nextInt((6 - 1) + 1) + 1;
+            int ultimaPosicion = numeroRandom;
+            System.out.println("numero random: " + numeroRandom);
 
-        Nodo r = miLista.inicio;
-        Nodo nodoRelativo = miLista.inicio;
-        Nodo nodoAtrasRelativo = null;
-        int ultimaPosicion = 2;
-        System.out.println("numero random: " + result);
-        for (int i = 0; i < 2; i++) {
+            for (int i = 0; i <= numeroRandom; i++) {
 
-            System.out.println("Nodo de atras: " + nodoAtrasRelativo);
-            System.out.println("Nodo actual: " + nodoRelativo);
-            System.out.println("----------------------");
+                System.out.println("VUELTA NUM " + i);
+                System.out.println("Nodo de atras: " + nodoAtras);
+                System.out.println("Nodo actual: " + nodoActual);
+                System.out.println("----------------------");
 
-            nodoAtrasRelativo = miLista.inicio;
-            nodoRelativo = miLista.inicio.getEnlace();
+                ultimaPosicion--;
+                if (ultimaPosicion == 0) {
+                    Nodo eliminado = nodoActual;
+                    nodoAtras.setEnlace(eliminado.getEnlace());
 
-            ultimaPosicion--;
-            if (ultimaPosicion == 0) {
-                Nodo eliminado = nodoRelativo;
-                nodoAtrasRelativo.setEnlace(eliminado.getEnlace());
+                    System.out.println("Llegaste a tu destino. Nombre del nodo: " + nodoActual.getNombre());
+                    nodoActual = nodoActual.getEnlace();
+                    System.out.println("El nodo quedo en: " + nodoActual);
+                    System.out.println("NODO ELIMINADO: " + eliminado.getNombre());
+                    miLista.numNodos--;
+                    break;
+                }
 
-                System.out.println("Llegaste a tu destino. Nombre del nodo: " + nodoRelativo.getNombre());
-                nodoRelativo = nodoRelativo.getEnlace();
-                System.out.println("El nodo quedo en: " + nodoRelativo);
-                System.out.println("NODO ELIMINADO: " + eliminado.getNombre());
+                nodoAtras = nodoAtras.getEnlace();
+                nodoActual = nodoActual.getEnlace();
+
             }
         }
+
+        System.out.println("Numero de nodos: " + miLista.numNodos);
+
+        // FUNCIONA INICIO
+
+        /// FUNCIONA FIN
 
         // ultimaPosicion = 2;
         // for (int i = 0; i < 2; i++) {
