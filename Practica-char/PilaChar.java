@@ -36,10 +36,10 @@ public class PilaChar {
     }
 
     public char eliminar() {
-        char borrado = ' '; // variable que devuelve el dato borrado
+        char borrado = '\u0000'; // variable que devuelve el dato borrado
         if (!estaVacia()) {
             borrado = p[tope]; // se saca el dato del tope
-            p[tope] = ' '; // se borra físicamente la casilla
+            p[tope] = '\u0000'; // se borra físicamente la casilla
             tope--; // se decrementa el tope
         }
         return borrado; // se devuelve el valor eliminado
@@ -63,7 +63,7 @@ public class PilaChar {
     public char datoEnTope() {
         if (!estaVacia())
             return p[tope];
-        return ' ';
+        return '\u0000';
     }
 
     public int numElementos() {

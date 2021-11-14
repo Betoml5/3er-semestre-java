@@ -15,6 +15,9 @@ public class MensajeSecreto {
         PilaChar pilaChar2 = new PilaChar(palabra.length());
         PilaChar pilaChar3 = new PilaChar(palabra.length());
 
+        char empty = '\u0000';
+        System.out.println("empty: " + empty);
+
         for (int i = 0; i < palabra.length(); i++) {
             int resto = i % 3;
             if (resto == 0) {
@@ -52,6 +55,10 @@ public class MensajeSecreto {
         }
         String filterWord = agregarCaracter(finalWord);
         System.out.println(filterWord);
+
+        if (finalWord.equals("x120l2 e. pdtee Sd9s l2eoérMci eosyH#")) {
+            System.out.println("true");
+        }
     }
 
     public static String agregarCaracter(String palabra) {
