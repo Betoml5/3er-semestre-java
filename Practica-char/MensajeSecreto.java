@@ -1,8 +1,10 @@
-import java.net.PasswordAuthentication;
-import java.util.Arrays;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
-import javax.swing.text.DefaultEditorKit.PasteAction;
+//Equipo
+// Alberto Martinez
+// Yahir Rivera
+// Brenda Rodriguez
 
 public class MensajeSecreto {
     public static void main(String[] args) {
@@ -55,10 +57,14 @@ public class MensajeSecreto {
         }
         String filterWord = agregarCaracter(finalWord);
         System.out.println(filterWord);
+<<<<<<< HEAD
 
         if (finalWord.equals("x120l2 e. pdtee Sd9s l2eoérMci eosyH#")) {
             System.out.println("true");
         }
+=======
+        JOptionPane.showMessageDialog(null, filterWord);
+>>>>>>> 78219edee32ce0b6245c78b6fc849dc2c5df85ea
     }
 
     public static String agregarCaracter(String palabra) {
