@@ -3,19 +3,31 @@
  * U4_Pratica2-1
  */
 import java.util.Random;
+import java.util.Scanner;
 
 public class U4_Pratica2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        Scanner entrada = new Scanner(System.in);
         Random random = new Random();
         ListaCircular miLista = new ListaCircular();
+        int numeroSoldados;
+        System.out.println("Ingresa el numero de soldados");
+        numeroSoldados = entrada.nextInt();
 
-        miLista.insertaFinal(new Nodo("Jesus"));
-        miLista.insertaFinal(new Nodo("Luis"));
-        miLista.insertaFinal(new Nodo("Beto")); // Nodo Relativo ->
-        miLista.insertaFinal(new Nodo("Pedro"));
-        miLista.insertaFinal(new Nodo("Julian")); // Segundo for aqui
-        miLista.insertaFinal(new Nodo("Daniel"));
+        while (numeroSoldados <= 1) {
+            System.out.println("El numero de soldados debe ser al menos 2");
+            System.out.println("Ingresa el numero de soldados");
+            numeroSoldados = entrada.nextInt();
+        }
+        entrada.nextLine();
+        for (int i = 0; i < numeroSoldados; i++) {
+            System.out.println("Ingresa el nombre del soldado: ");
+            String nombre = entrada.nextLine();
+            miLista.insertaFinal(new Nodo(nombre));
+        }
+        System.out.println("Lista de soldados: ");
+        System.out.println(miLista.toString());
 
         // NJesus
         Nodo nodoActual = miLista.getInicio();
@@ -23,16 +35,18 @@ public class U4_Pratica2 {
         while (miLista.numNodos != 1 && miLista.numNodos != 0) {
             int numeroRandom = random.nextInt((6 - 1) + 1) + 1;
             int n = numeroRandom;
-            System.out.println("Numero random: " + numeroRandom);
-            System.out.println("_______________________________");
-            for (int i = 0; i < numeroRandom; i++) {
 
-                System.out.println("Nodo atras: " + nodoAtras);
-                System.out.println("Nodo actual: " + nodoActual);
+            System.out.println("Soldado: " + nodoActual.getNombre() + " lanzando dado...");
+            Thread.sleep(4000);
+            System.out.println("Numero del dado: " + "\033[0;1m" + numeroRandom);
+            Thread.sleep(2000);
+            for (int i = 0; i < numeroRandom; i++) {
 
                 n--;
                 if (n == 0) {
-                    System.out.println("Nodo eliminado: " + nodoActual.getNombre());
+                    System.out.println("-------------------------------------------");
+                    System.out.println("Soldado eliminado: " + nodoActual.getNombre());
+                    System.out.println("-------------------------------------------");
                     Nodo eliminado = nodoActual;
                     nodoAtras.setEnlace(eliminado.getEnlace());
                     nodoActual = nodoActual.getEnlace();
@@ -51,9 +65,13 @@ public class U4_Pratica2 {
             }
 
         }
-
-        System.out.println("Numero de nodos: " + miLista.numNodos);
-        System.out.println("El nodo que quedo fue: " + nodoActual.getNombre());
+        System.out.println("El soldado que quedo fue: " + nodoActual.getNombre());
+        System.out.println("Soldado escapando.");
+        Thread.sleep(1000);
+        System.out.println("Soldado escapando..");
+        Thread.sleep(1500);
+        System.out.println("Soldado escapando...");
+        Thread.sleep(2000);
 
     }
 }
