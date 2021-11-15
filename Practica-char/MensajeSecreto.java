@@ -57,14 +57,7 @@ public class MensajeSecreto {
         }
         String filterWord = agregarCaracter(finalWord);
         System.out.println(filterWord);
-<<<<<<< HEAD
-
-        if (finalWord.equals("x120l2 e. pdtee Sd9s l2eoérMci eosyH#")) {
-            System.out.println("true");
-        }
-=======
         JOptionPane.showMessageDialog(null, filterWord);
->>>>>>> 78219edee32ce0b6245c78b6fc849dc2c5df85ea
     }
 
     public static String agregarCaracter(String palabra) {
