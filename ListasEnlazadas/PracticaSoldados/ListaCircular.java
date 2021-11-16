@@ -88,7 +88,7 @@ public class ListaCircular {
         String s = "";
         if (!listaVacia()) {
             for (int i = 0; i < numNodos; i++) {
-                s += r.toString() + "\n";
+                s += "Nombre del soldado: " + r.getNombre() + "\n";
                 r = r.getEnlace();
             }
             return s;
