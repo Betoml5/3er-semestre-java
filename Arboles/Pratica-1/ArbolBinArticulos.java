@@ -1,3 +1,5 @@
+package Practica1;
+
 public class ArbolBinArticulos {
 
     // Equipo 5
@@ -5,10 +7,10 @@ public class ArbolBinArticulos {
     // Yahir Rivera
     // Brenda Rodriguez
 
-    // Atributo (solo la raÃ­z del Ã¡rbol)
+    // Atributo (solo la raíz del árbol)
     private NodoArbolBinArticulo raiz;
 
-    // Constructor (crea un Ã¡rbol binario vacÃ­o)
+    // Constructor (crea un árbol binario vacío)
     public ArbolBinArticulos() {
         raiz = null;
     }
@@ -23,7 +25,7 @@ public class ArbolBinArticulos {
         raiz = nuevaRaiz;
     }
 
-    // MÃ©todo para determinar si el Ã¡rbol vacÃ­o
+    // Método para determinar si el árbol vacío
     public boolean estaVacio() {
         if (raiz == null)
             return true;
@@ -31,48 +33,48 @@ public class ArbolBinArticulos {
             return false;
     }
 
-    // MÃ©todo PRINCIPAL para insertar un nodo en el Ã¡rbol
+    // Método PRINCIPAL para insertar un nodo en el árbol
     public void insertarNodo(NodoArbolBinArticulo n) {
         if (estaVacio()) // si el arbol esta vacio, crea la raiz con este nodo nuevo
             raiz = n;
         else
-            insertar(raiz, n); // si ya tiene nodos, busca dÃ³nde insertarlo usando un mÃ©todo auxiliar
+            insertar(raiz, n); // si ya tiene nodos, busca dónde insertarlo usando un método auxiliar
     }
 
-    // MÃ©todo AUXILIAR para insertar RECURSIVO agrega < a la izquierda y >= a la
+    // Método AUXILIAR para insertar RECURSIVO agrega < a la izquierda y >= a la
     // derecha
     public void insertar(NodoArbolBinArticulo raiz, NodoArbolBinArticulo n) {
         if (raiz.getDescripcion().compareToIgnoreCase(n.getDescripcion()) >= 0) {
             if (raiz.getIzquierdo() == null)
-                raiz.setIzquierdo(n); // en esta posiciÃ³n inserta un nuevo nodo
+                raiz.setIzquierdo(n); // en esta posición inserta un nuevo nodo
             else // cuando ya tiene hijo izquierdo ese nodo, y no lo puede colgar
-                insertar(raiz.getIzquierdo(), n); // se manda llamar a sÃ­ mismo para buscar lugar libre
+                insertar(raiz.getIzquierdo(), n); // se manda llamar a sí mismo para buscar lugar libre
         } else {
             if (raiz.getDerecho() == null)
-                raiz.setDerecho(n); // en esta posiciÃ³n inserta un nuevo nodo
+                raiz.setDerecho(n); // en esta posición inserta un nuevo nodo
             else
-                insertar(raiz.getDerecho(), n); // se manda llamar a sÃ­ mismo para buscar espacio libre
+                insertar(raiz.getDerecho(), n); // se manda llamar a sí mismo para buscar espacio libre
         }
 
     }
 
-    // devuelve un String con el recorrido PREORDEN del Ã¡rbol
+    // devuelve un String con el recorrido PREORDEN del árbol
     public String preorden(NodoArbolBinArticulo nodo) {
-        if (nodo == null) // caso base o primitiva PARA LA EJECUCIÃ“N DEL MÃ‰TODO
+        if (nodo == null) // caso base o primitiva PARA LA EJECUCIÓN DEL MÉTODO
             return "";
         return nodo.getDescripcion() + ": $" + nodo.getPrecio() + "\n" + preorden(nodo.getIzquierdo())
                 + preorden(nodo.getDerecho());
     }
 
-    // devuelve un String con el recorrido INORDEN del Ã¡rbol
+    // devuelve un String con el recorrido INORDEN del árbol
     public String inorden(NodoArbolBinArticulo nodo) {
-        if (nodo == null) // caso base o primitiva PARA LA EJECUCIÃ“N DEL MÃ‰TODO
+        if (nodo == null) // caso base o primitiva PARA LA EJECUCIÓN DEL MÉTODO
             return "";
         return inorden(nodo.getIzquierdo()) + nodo.getDescripcion() + ": $" + nodo.getPrecio() + "\n"
                 + inorden(nodo.getDerecho());
     }
 
-    // devuelve un String con el recorrido POSTORDEN del Ã¡rbol
+    // devuelve un String con el recorrido POSTORDEN del árbol
     public String postorden(NodoArbolBinArticulo nodo) {
         if (nodo == null)
             return "";
@@ -97,24 +99,25 @@ public class ArbolBinArticulos {
     }
 
     public String articulos500(NodoArbolBinArticulo nodo) {
-        String descripciones = "";
         if (nodo == null)
             return "";
         else if (nodo.getPrecio() > 500) {
-            return descripciones += "\n" + nodo.getDescripcion() + articulos500(nodo.getIzquierdo())
+            return "\n" + nodo.getDescripcion() + articulos500(nodo.getIzquierdo())
                     + articulos500(nodo.getDerecho());
+        }else{
+        	return articulos500(nodo.getIzquierdo()) + articulos500(nodo.getDerecho());
         }
-        return "";
+        
     }
 
-    public NodoArbolBinArticulo buscarArticulo(NodoArbolBinArticulo nodo, String descripcion) {
+    public String buscarArticulo(NodoArbolBinArticulo nodo, String descripcion) {
         if (nodo == null)
-            return null;
+            return "";
         else if (nodo.getDescripcion().equalsIgnoreCase(descripcion)) {
-            return nodo;
+            return nodo.toString();
+        }else{
+        	return buscarArticulo(nodo.getIzquierdo(), descripcion) + buscarArticulo(nodo.getDerecho(), descripcion);
         }
-
-        return null;
     }
 
     // public String hojas(NodoArbolBinArticulo nodo) {
